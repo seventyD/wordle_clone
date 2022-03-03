@@ -1,5 +1,6 @@
 {% from 'header.html' import header %}
 {% from 'help_window.html' import help %}
+{% from 'statistics.html' import stats %}
 
 {% from 'game.html' import game %}
 
@@ -25,6 +26,7 @@
     <div class="background">
         {{ header() }}
         {{ help() }}
+        {{ stats() }}
         {{ game() }}
         {{ footer() }}
     </div>

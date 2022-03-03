@@ -21,6 +21,7 @@ h1
     margin: 0 auto;
 
 }
+
 .help_button
 {
     padding-top: 10px;
@@ -67,6 +68,92 @@ h1
 {
     text-align: left;
 }
+
+
+
+
+.stats_button
+{
+    padding-top: 10px;
+    float: right;
+    width: 50px;
+}
+
+.stats_button:hover
+{
+    color: grey;
+    cursor: pointer;
+}
+
+.stats_popup
+{
+    color: white;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 50px;
+    display: none;
+    transition: all 1s linear;
+
+}
+
+.stats_exit
+{
+    float: right;
+}
+
+.stats_exit:hover
+{
+    color: grey;
+    cursor: pointer;
+}
+
+.stats_title
+{
+    text-align: center;
+    font-size: larger;
+    padding-bottom: 20px;
+}
+
+.stats_info
+{
+    text-align: left;
+    display: flex;
+    justify-content: center;
+}
+
+.played
+{
+    width: 50px;
+    text-align: center;
+    padding: 50px;
+}
+
+.Wins
+{
+    width: 50px;
+    text-align: center;
+    padding: 50px;
+
+}
+.CStreak
+{
+    width: 50px;
+    text-align: center;
+    padding: 50px;
+
+}
+.MStreak
+{
+    width: 50px;
+    text-align: center;
+    padding: 50px;
+
+}
+
+
+
+
+
 .jumbotron
 {   
     font-family: nyt-karnakcondensed;
@@ -81,4 +168,10 @@ h1
     border-style: solid;
     border-color: #3a3a3c;
 
+ }
+
+
+ .footer
+ {
+     padding-bottom: 70%;
  }
