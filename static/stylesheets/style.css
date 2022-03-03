@@ -1,0 +1,28 @@
+.background
+{
+    background-color: rgba(29, 29, 29, 0.774);
+
+}
+
+@font-face {
+    font-family: nyt-karnakcondensed;
+    src: url('karnakcondensed-normal-700.woff');
+  }
+
+
+.jumbotron
+{   
+    
+    font-family: nyt-karnakcondensed;
+
+    padding:5px !important;
+    margin: 0;
+
+    background-size: cover;
+
+    border: 0px;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: #3a3a3c;
+
+ }
