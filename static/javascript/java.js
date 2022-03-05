@@ -23,18 +23,24 @@ function close_stats()
 }
 
 
+var goal_word = "CRANE";
+var turn_number = 0;
+
 function init_game()
 {
-    const goal_word = "CRANE";
+    goal_word = "TIGHT";
     turn_number = 0;
-
+    var possible_words = ["SEVEN", "WORLD", "ABOUT", "AGAIN", "HEART", "PIZZA", "BRINE", "WATER", "HAPPY", "SIXTY", 'BOARD', 'MONTH', 'ANGEL', 'DEATH', 'GREEN', 'MUSIC', 'FIFTY', 'THREE', 'PARTY', 'PIANO', 'KELLY', 'MOUTH', 'WOMAN', 'SUGAR', 'AMBER', 'DREAM', 'APPLE', 'LAUGH', 'TIGER', 'FAITH', 'EARTH', 'RIVER', 'MONEY', 'PEACE', 'FORTY', 'WORDS', 'SMILE','ABATE', 'HOUSE', "ALONE", "WATCH", "LEMON", "SOUTH", "ERICA", "ANIME", "AFTER", "SANTA", "WOMEN", "ADMIN", "JESUS", "CHINA" ];
+    goal_word = possible_words[Math.floor(Math.random() * possible_words.length)];
 }
 
-const goal_word = "CRANE";
-var turn_number = 0;
 
 function guess_word()
 {
+    if(turn_number == 0)
+    {
+        init_game();
+    }
     var guess = document.getElementById('Guess');
     if (guess.value.length != 5)   {alert("MUST BE 5 LETTERS")}
     else
@@ -48,7 +54,6 @@ function guess_word()
 
 function add_word(guess, turn_num)
 {
-    const goal_word = "CRANE";
     const used = document.getElementById("used_letters");
     const letters = [];
 
@@ -124,6 +129,7 @@ function add_word(guess, turn_num)
     }
 
     if(guess == goal_word) {alert("WIN!!!");}
+    if(turn_number == 5) {alert("LOSE!!!");}
     
 
 
@@ -145,3 +151,11 @@ function check_word()
     if(word == "CRANE") {alert('WIN');}
       
 }
+
+function reset()
+{
+
+
+    window.location.reload();
+}
+
