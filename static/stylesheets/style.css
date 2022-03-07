@@ -152,8 +152,6 @@ h1
 
 
 
-
-
 .jumbotron
 {   
     font-family: nyt-karnakcondensed;
@@ -172,7 +170,7 @@ h1
 
 .game_window
 {
-    height: 700px;
+    height: 840px;
     width: 700px;
     border: 1px;
     border-color: #3a3a3c;

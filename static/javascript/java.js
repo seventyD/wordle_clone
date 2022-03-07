@@ -107,11 +107,23 @@ function add_word(guess, turn_num)
         letters.push(letter1, letter2, letter3, letter4, letter5);
 
     }
+    if(turn_num == 6)
+    {
+        const letter1 = document.getElementById("L61");
+        const letter2 = document.getElementById("L62");
+        const letter3 = document.getElementById("L63");
+        const letter4 = document.getElementById("L64");
+        const letter5 = document.getElementById("L65");
+        letters.push(letter1, letter2, letter3, letter4, letter5);
+
+    }
     
+
 
 
     for (let i = 0; i < 5; i++) 
     {
+
         letters[i].innerHTML += guess[i];
         
         letters[i].style.backgroundColor = "#3a3a3c";
@@ -127,10 +139,9 @@ function add_word(guess, turn_num)
         }
         if(!letter_is_used) {used.innerHTML += guess[i];}
     }
-
-    if(guess == goal_word) {alert("WIN!!!");}
-    if(turn_number == 5) {alert("LOSE!!!");}
     
+    if(guess == goal_word) {alert("WIN!!!");}
+    if(turn_number == 6) {alert("LOSE!!!, word was: " +  goal_word);}
 
 
 }

@@ -1,0 +1,17 @@
+{% macro login() %}
+
+
+<div class="login">
+    <form>
+        <label for="fname">Username:</label><br>
+        <input style="color: black;" type="text" id="uname" name="uname"><br>
+        <label for="lname">Password:</label><br>
+        <input style="color: black;" type="password" id="pword" name="pword">
+      </form> 
+        <div style="color: black;">
+            <button type="button" onclick="login()" style="margin: 5px;"> LOGIN! </button>
+        </div>
+
+</div>
+
+{% endmacro %}
