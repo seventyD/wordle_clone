@@ -192,3 +192,97 @@ function reset()
     window.location.reload();
 }
 
+
+function place_letter(letter)
+{
+    let letter_blocks = document.getElementsByClassName("letter");
+    let current_block_num = 0;
+
+    for (let i = 0; i < letter_blocks.length; i++) 
+    {
+        if(letter_blocks[i].innerHTML == "")
+        {
+            current_block_num = i;
+            //alert(i)
+            break;
+        }
+    }
+
+ 
+    if (letter == 'ENTER')
+    {
+        switch (current_block_num)
+    {
+        case 5:
+            if(letter_blocks[4].style.backgroundColor == '')
+            {
+                guess_word(letter_blocks[0,1,2,3,4]);
+            }
+            break;
+        case 10:
+            if(letter_blocks[9].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+            break;
+        case 15:
+            if(letter_blocks[14].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+            break;
+        case 20:
+            if(letter_blocks[19].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+        break;
+        case 25:
+            if(letter_blocks[24].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+        break;
+
+
+    }
+    }
+
+    letter_blocks[current_block_num].innerHTML = letter;
+    switch (current_block_num)
+    {
+        case 5:
+            if(letter_blocks[4].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+            break;
+        case 10:
+            if(letter_blocks[9].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+            break;
+        case 15:
+            if(letter_blocks[14].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+            break;
+        case 20:
+            if(letter_blocks[19].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+        break;
+        case 25:
+            if(letter_blocks[24].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num].innerHTML = '';
+            }
+        break;
+
+
+    }
+
+}
