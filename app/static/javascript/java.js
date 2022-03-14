@@ -209,10 +209,12 @@ function place_letter(letter)
             current_block_num = i;
             break;
         }
+        current_block_num = 30;
+
     }
 
  
-    if (letter == 'ENTER')
+    if (letter == 'Enter')
     {
         switch (current_block_num)
         {
@@ -240,22 +242,27 @@ function place_letter(letter)
                 {
                     var guess = letter_blocks[15].innerHTML + letter_blocks[16].innerHTML + letter_blocks[17].innerHTML + letter_blocks[18].innerHTML + letter_blocks[19].innerHTML;
                     guess_word(guess);            }
-            break;
+                break;
             case 25:
                 if(letter_blocks[24].style.backgroundColor == '')
                 {
                     var guess = letter_blocks[20].innerHTML + letter_blocks[21].innerHTML + letter_blocks[22].innerHTML + letter_blocks[23].innerHTML + letter_blocks[24].innerHTML;
                     guess_word(guess);            }
-            break;
+                break;
+            case 30:
+                var guess = letter_blocks[25].innerHTML + letter_blocks[26].innerHTML + letter_blocks[27].innerHTML + letter_blocks[28].innerHTML + letter_blocks[29].innerHTML;
+                guess_word(guess);
+                break;
 
 
+            
         }
     }
     else
     {
 
 
-        if(letter == 'delete')
+        if(letter == ',')
         {
             if(letter_blocks[current_block_num-1].style.backgroundColor == '')
             {
@@ -309,4 +316,25 @@ function place_letter(letter)
     }
 
 
+}
+
+
+
+document.addEventListener('keypress', logKey);
+
+function logKey(e) {
+    let key = e.key;
+    let valid_press = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M', 'Enter', ','];
+
+    for (let i = 0; i < valid_press.length; i++)
+    {
+        
+        if(key == valid_press[i])
+        {
+
+            place_letter(key);
+        }
+    }
+    //if(e.key == q) { place_letter(letter); }
+    
 }

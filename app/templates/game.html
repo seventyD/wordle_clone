@@ -136,7 +136,28 @@
     </div>
 
 
+    <div id="next_game" style="display: none;">
+        <br>
+    
+        <span id="win/loss">
+            wil or loss text
+        </span>
+        <br>
+        <br>
+        <!-- ADD GAME RESULT TO DB-->
+        <button style="color: black;" onclick="reset()">Play again?</button>
+        <br>
+    </div>
+
     <div class="new_inputs">
+        <div class="letters_used" id="letters_used">
+            <label for=" ">LETTERS USED</label></br>
+            <div style="text-align: left;" id="used_letters">
+            </div>
+        </div>
+        </br>
+
+
 
         <div class="keyboard_row" style="color: black;">
             <button id="q" onclick="place_letter('Q')">Q</button>
@@ -162,7 +183,7 @@
             <button id="l" onclick="place_letter('L')">L</button>
         </div>
         <div class="keyboard_row" style="color: black;">
-            <button id="enter"onclick="place_letter('ENTER')" >ENTER</button>
+            <button id="enter"onclick="place_letter('Enter')" >ENTER</button>
             <button id="z" onclick="place_letter('Z')">Z</button>
             <button id="x" onclick="place_letter('X')">X</button>
             <button id="c" onclick="place_letter('C')">C</button>
@@ -170,7 +191,7 @@
             <button id="b" onclick="place_letter('B')">B</button>
             <button id="n" onclick="place_letter('N')">N</button>
             <button id="m" onclick="place_letter('M')">M</button>
-            <button id="delete" onclick="place_letter('delete')" ><<</button>
+            <button id="delete" onclick="place_letter(',')" ><<</button>
 
            
         </div>
@@ -182,46 +203,27 @@
 
 
     <div class="old_inputs">
-    <div id="game_inputs">
-        <div class="letters_used" id="letters_used">
-            <label for=" ">LETTERS USED</label></br>
-            <div style="text-align: left;" id="used_letters">
+        <div id="game_inputs">
+            
+    
+            <div class="keyboard" id="keyboard">
+                
+                    
+    
+    
+                    <div style="color: black;">
+                        <button type="button" onclick="reset()" style="margin: 5px;"> Reset! </button>
+                    </div>
+                
+    
+    
+    
             </div>
         </div>
-
-        <div class="keyboard" id="keyboard">
-            
-                <label for="Guess">GUESS</label></br>
-                <div style="color: black;">
-                    <input type="text" maxlength="5" id="Guess"></br>
-                    <button type="button" onclick="guess_word()" style="margin: 5px;"> GUESS! </button>
-                </div>
-
-
-                <div style="color: black;">
-                    <button type="button" onclick="reset()" style="margin: 5px;"> Reset! </button>
-                </div>
-            
-
-
-
-        </div>
-    </div>
     </div>
 
 
 </div>
 
-<div id="next_game" style="display: none;">
-    <br>
-
-    <span id="win/loss">
-        wil or loss text
-    </span>
-    <br>
-    <br>
-    <!-- ADD GAME RESULT TO DB-->
-    <button style="color: black;" onclick="reset()">Play again?</button>
-</div>
 
 {% endmacro %}
