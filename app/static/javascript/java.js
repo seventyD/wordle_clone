@@ -162,8 +162,10 @@ function win_screen()
 
 function lose_screen(goal_word)
 {
-    document.getElementById("game").style.display = "none";
     document.getElementById("next_game").style.display = "block";
+
+    document.getElementById("game_inputs").style.display = "none";
+    
     document.getElementById("win/loss").innerHTML = "LOSER!!! </br> WORD WAS: " + goal_word;
 
     
