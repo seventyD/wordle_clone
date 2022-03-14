@@ -1,7 +1,7 @@
 {% macro game() %}
 
 <div id="game">
-    <div class="game_window">
+    <div class="game_window" id="game_window">
         <div class="row">
             <div class="collumn"> 
                 <div class="letter" id="L11"></div>
@@ -135,28 +135,30 @@
     </div>
     </div>
 
-    <div class="letters_used">
-        <label for=" ">LETTERS USED</label></br>
-        <div style="text-align: left;" id="used_letters">
+    <div id="game_inputs">
+        <div class="letters_used" id="letters_used">
+            <label for=" ">LETTERS USED</label></br>
+            <div style="text-align: left;" id="used_letters">
+            </div>
         </div>
-    </div>
 
-    <div class="keyboard">
-        
-            <label for="Guess">GUESS</label></br>
-            <div style="color: black;">
-                <input type="text" id="Guess"></br>
-                <button type="button" onclick="guess_word()" style="margin: 5px;"> GUESS! </button>
-            </div>
-
-
-            <div style="color: black;">
-                <button type="button" onclick="reset()" style="margin: 5px;"> Reset! </button>
-            </div>
-        
+        <div class="keyboard" id="keyboard">
+            
+                <label for="Guess">GUESS</label></br>
+                <div style="color: black;">
+                    <input type="text" maxlength="5" id="Guess"></br>
+                    <button type="button" onclick="guess_word()" style="margin: 5px;"> GUESS! </button>
+                </div>
 
 
+                <div style="color: black;">
+                    <button type="button" onclick="reset()" style="margin: 5px;"> Reset! </button>
+                </div>
+            
 
+
+
+        </div>
     </div>
 
 </div>
@@ -169,6 +171,7 @@
     </span>
     <br>
     <br>
+    <!-- ADD GAME RESULT TO DB-->
     <button style="color: black;" onclick="reset()">Play again?</button>
 </div>
 

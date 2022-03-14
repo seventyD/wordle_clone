@@ -175,10 +175,10 @@ h1
     border: 1px;
     border-color: #3a3a3c;
     border-style: solid;
-    display: block;
     margin: auto;
     margin-bottom: 100px;
 }
+
 .row
 {
     justify-content: center;

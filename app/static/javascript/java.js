@@ -142,15 +142,18 @@ function add_word(guess, turn_num)
     
     if(guess == goal_word) {win_screen();}
     if(turn_number == 6) {lose_screen(goal_word);}
+    if(guess == goal_word) {win_screen();}
+
 
 
 }
 
 function win_screen()
 {
-
-    document.getElementById("game").style.display = "none";
     document.getElementById("next_game").style.display = "block";
+
+    document.getElementById("game_inputs").style.display = "none";
+    
     document.getElementById("win/loss").innerHTML = "WINNER!!!!!"
 
 
