@@ -73,10 +73,6 @@ def register():
     return render_template('register_base.html', title='Register', form=form)
 
 
-@app.route('/stats')
-def stats():
-    return render_template('stats_base.html')
-    
 
 @app.route('/index/<jsdata>')
 @login_required
