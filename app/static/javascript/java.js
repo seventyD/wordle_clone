@@ -20,12 +20,6 @@ function open_stats()
     var CStreak = 0
     var MStreak = 0
 
-
-    //document.getElementById("played").innerHTML = played +  "</br> Played";
-    //document.getElementById("Wins").innerHTML = wins +  "</br> Wins"
-    //document.getElementById("CStreak").innerHTML = CStreak +  "</br> Current Streak"
-    //document.getElementById("MStreak").innerHTML = MStreak +  "</br> Max Streak"
-
 }
 
 function close_stats()
@@ -143,10 +137,29 @@ function add_word(guess, turn_num)
         letters[i].innerHTML = guess[i];
         
         letters[i].style.backgroundColor = "#3a3a3c";
-        if(guess[i] == goal_word[0] || guess[i] == goal_word[1] || guess[i] == goal_word[2] || guess[i] == goal_word[3] || guess[i] == goal_word[4])
-        {letters[i].style.backgroundColor = "#b59f3b";}
+
+        
+
+        for (let n = 0; n < 5; n++)
+        {
+            if(goal_word[i] == guess[n])
+                {
+                    letters[i].style.backgroundColor = "#b59f3b";
+                    break;
+                }
+        }
+        
         if(guess[i] == goal_word[i])
-        {letters[i].style.backgroundColor = "#538d4e";}
+        {
+            letters[i].style.backgroundColor = "#538d4e";
+        }
+        /*
+        else
+        {
+            if(guess[i] == goal_word[0] || guess[i] == goal_word[1] || guess[i] == goal_word[2] || guess[i] == goal_word[3] || guess[i] == goal_word[4])
+            {letters[i].style.backgroundColor = "#b59f3b";}
+        }
+        */
 
         var letter_is_used = false;
         for(let x = 0; x < used.innerHTML.length; x++)
