@@ -145,6 +145,7 @@ function add_word(guess, turn_num)
             if(goal_word[i] == guess[n])
                 {
                     letters[i].style.backgroundColor = "#b59f3b";
+                    //document.getElementById(goal_word[i]).backgroundColor = "#b59f3b";
                     break;
                 }
         }
@@ -153,13 +154,7 @@ function add_word(guess, turn_num)
         {
             letters[i].style.backgroundColor = "#538d4e";
         }
-        /*
-        else
-        {
-            if(guess[i] == goal_word[0] || guess[i] == goal_word[1] || guess[i] == goal_word[2] || guess[i] == goal_word[3] || guess[i] == goal_word[4])
-            {letters[i].style.backgroundColor = "#b59f3b";}
-        }
-        */
+
 
         var letter_is_used = false;
         for(let x = 0; x < used.innerHTML.length; x++)
