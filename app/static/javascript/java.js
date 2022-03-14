@@ -14,6 +14,18 @@ function open_stats()
 {
     const help_window = document.getElementById("stats_popup");
     help_window.style.display = "block";  
+
+    var played = 0
+    var wins = 0
+    var CStreak = 0
+    var MStreak = 0
+
+
+    //document.getElementById("played").innerHTML = played +  "</br> Played";
+    //document.getElementById("Wins").innerHTML = wins +  "</br> Wins"
+    //document.getElementById("CStreak").innerHTML = CStreak +  "</br> Current Streak"
+    //document.getElementById("MStreak").innerHTML = MStreak +  "</br> Max Streak"
+
 }
 
 function close_stats()
@@ -30,7 +42,7 @@ function init_game()
 {
     goal_word = "TIGHT";
     turn_number = 0;
-    var possible_words = ["SEVEN", "WORLD", "ABOUT", "AGAIN", "HEART", "PIZZA", "BRINE", "WATER", "HAPPY", "SIXTY", 'BOARD', 'MONTH', 'ANGEL', 'DEATH', 'GREEN', 'MUSIC', 'FIFTY', 'THREE', 'PARTY', 'PIANO', 'KELLY', 'MOUTH', 'WOMAN', 'SUGAR', 'AMBER', 'DREAM', 'APPLE', 'LAUGH', 'TIGER', 'FAITH', 'EARTH', 'RIVER', 'MONEY', 'PEACE', 'FORTY', 'WORDS', 'SMILE','ABATE', 'HOUSE', "ALONE", "WATCH", "LEMON", "SOUTH", "ERICA", "ANIME", "AFTER", "SANTA", "WOMEN", "ADMIN", "JESUS", "CHINA" ];
+    var possible_words = ["CRANE"];//["SEVEN", "WORLD", "ABOUT", "AGAIN", "HEART", "PIZZA", "BRINE", "WATER", "HAPPY", "SIXTY", 'BOARD', 'MONTH', 'ANGEL', 'DEATH', 'GREEN', 'MUSIC', 'FIFTY', 'THREE', 'PARTY', 'PIANO', 'KELLY', 'MOUTH', 'WOMAN', 'SUGAR', 'AMBER', 'DREAM', 'APPLE', 'LAUGH', 'TIGER', 'FAITH', 'EARTH', 'RIVER', 'MONEY', 'PEACE', 'FORTY', 'WORDS', 'SMILE','ABATE', 'HOUSE', "ALONE", "WATCH", "LEMON", "SOUTH", "ERICA", "ANIME", "AFTER", "SANTA", "WOMEN", "ADMIN", "JESUS", "CHINA" ];
     goal_word = possible_words[Math.floor(Math.random() * possible_words.length)];
 }
 
@@ -140,7 +152,7 @@ function add_word(guess, turn_num)
         if(!letter_is_used) {used.innerHTML += guess[i];}
     }
     
-    if(guess == goal_word) {win_screen();}
+    //if(guess == goal_word) {win_screen();}
     if(turn_number == 6) {lose_screen(goal_word);}
     if(guess == goal_word) {win_screen();}
 

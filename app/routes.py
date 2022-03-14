@@ -10,7 +10,29 @@ from werkzeug.urls import url_parse
 @app.route('/index')
 @login_required
 def index():
-    return render_template('base.html')
+    if current_user.is_authenticated:
+        u = current_user
+        games = u.games.all()
+        played=len(games)
+        wins = 0
+        losses = 0
+        CStreak = 0
+        MStreak = 0
+
+        for game in games:
+            if game.win == False:
+                losses += 1
+                if CStreak > MStreak:
+                    MStreak = CStreak
+                CStreak = 0
+            if game.win == True:
+                wins +=1
+                CStreak +=1
+                if CStreak > MStreak:
+                    MStreak = CStreak
+        
+
+    return render_template('base.html', played=played, wins=wins, CStreak=CStreak, MStreak=MStreak)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -60,13 +82,17 @@ def stats():
 @login_required
 def get_javascript_data(jsdata):
     print(jsdata)
+
     if jsdata == '<LOSS>':
-        print('GOT LOSS')
         u = current_user
         game = Game(win=False, author=u)
-        print(game.author)
         db.session.add(game)
         db.session.commit()
 
+    if jsdata == '<WIN>':
+        u = current_user
+        game = Game(win=True, author=u)
+        db.session.add(game)
+        db.session.commit()
 
     return jsdata
