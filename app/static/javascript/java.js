@@ -47,18 +47,22 @@ function init_game()
 }
 
 
-function guess_word()
+function guess_word(guess)
 {
+
     if(turn_number == 0)
     {
         init_game();
     }
-    var guess = document.getElementById('Guess');
-    if (guess.value.length != 5)   {alert("MUST BE 5 LETTERS")}
+
+
+
+    if (guess.length != 5)   {alert("MUST BE 5 LETTERS")}
     else
     {
+
         turn_number++;
-        add_word(guess.value.toUpperCase(), turn_number);
+        add_word(guess.toUpperCase(), turn_number);
 
     }
     guess.innerHTML = "";
@@ -136,7 +140,7 @@ function add_word(guess, turn_num)
     for (let i = 0; i < 5; i++) 
     {
 
-        letters[i].innerHTML += guess[i];
+        letters[i].innerHTML = guess[i];
         
         letters[i].style.backgroundColor = "#3a3a3c";
         if(guess[i] == goal_word[0] || guess[i] == goal_word[1] || guess[i] == goal_word[2] || guess[i] == goal_word[3] || guess[i] == goal_word[4])
@@ -203,7 +207,6 @@ function place_letter(letter)
         if(letter_blocks[i].innerHTML == "")
         {
             current_block_num = i;
-            //alert(i)
             break;
         }
     }
@@ -212,77 +215,98 @@ function place_letter(letter)
     if (letter == 'ENTER')
     {
         switch (current_block_num)
+        {
+            case 5:
+                if(letter_blocks[4].style.backgroundColor == '')
+                {
+                    var guess = letter_blocks[0].innerHTML + letter_blocks[1].innerHTML + letter_blocks[2].innerHTML + letter_blocks[3].innerHTML + letter_blocks[4].innerHTML;
+                    guess_word(guess);
+                }
+                break;
+            case 10:
+                if(letter_blocks[9].style.backgroundColor == '')
+                {
+                    var guess = letter_blocks[5].innerHTML + letter_blocks[6].innerHTML + letter_blocks[7].innerHTML + letter_blocks[8].innerHTML + letter_blocks[9].innerHTML;
+                    guess_word(guess);            }
+                break;
+            case 15:
+                if(letter_blocks[14].style.backgroundColor == '')
+                {
+                    var guess = letter_blocks[10].innerHTML + letter_blocks[11].innerHTML + letter_blocks[12].innerHTML + letter_blocks[13].innerHTML + letter_blocks[14].innerHTML;
+                    guess_word(guess);            }
+                break;
+            case 20:
+                if(letter_blocks[19].style.backgroundColor == '')
+                {
+                    var guess = letter_blocks[15].innerHTML + letter_blocks[16].innerHTML + letter_blocks[17].innerHTML + letter_blocks[18].innerHTML + letter_blocks[19].innerHTML;
+                    guess_word(guess);            }
+            break;
+            case 25:
+                if(letter_blocks[24].style.backgroundColor == '')
+                {
+                    var guess = letter_blocks[20].innerHTML + letter_blocks[21].innerHTML + letter_blocks[22].innerHTML + letter_blocks[23].innerHTML + letter_blocks[24].innerHTML;
+                    guess_word(guess);            }
+            break;
+
+
+        }
+    }
+    else
     {
-        case 5:
-            if(letter_blocks[4].style.backgroundColor == '')
-            {
-                guess_word(letter_blocks[0,1,2,3,4]);
-            }
-            break;
-        case 10:
-            if(letter_blocks[9].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-            break;
-        case 15:
-            if(letter_blocks[14].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-            break;
-        case 20:
-            if(letter_blocks[19].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-        break;
-        case 25:
-            if(letter_blocks[24].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-        break;
 
 
-    }
-    }
+        if(letter == 'delete')
+        {
+            if(letter_blocks[current_block_num-1].style.backgroundColor == '')
+            {
+                letter_blocks[current_block_num-1].innerHTML = '';
+            }
 
-    letter_blocks[current_block_num].innerHTML = letter;
-    switch (current_block_num)
-    {
-        case 5:
-            if(letter_blocks[4].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-            break;
-        case 10:
-            if(letter_blocks[9].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-            break;
-        case 15:
-            if(letter_blocks[14].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-            break;
-        case 20:
-            if(letter_blocks[19].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-        break;
-        case 25:
-            if(letter_blocks[24].style.backgroundColor == '')
-            {
-                letter_blocks[current_block_num].innerHTML = '';
-            }
-        break;
 
+        }
+        else
+        {
+
+            letter_blocks[current_block_num].innerHTML = letter;
+            switch (current_block_num)
+            {
+                case 5:
+                    if(letter_blocks[4].style.backgroundColor == '')
+                    {
+                        letter_blocks[current_block_num].innerHTML = '';
+                    }
+                    break;
+                case 10:
+                    if(letter_blocks[9].style.backgroundColor == '')
+                    {
+                        letter_blocks[current_block_num].innerHTML = '';
+                    }
+                    break;
+                case 15:
+                    if(letter_blocks[14].style.backgroundColor == '')
+                    {
+                        letter_blocks[current_block_num].innerHTML = '';
+                    }
+                    break;
+                case 20:
+                    if(letter_blocks[19].style.backgroundColor == '')
+                    {
+                        letter_blocks[current_block_num].innerHTML = '';
+                    }
+                break;
+                case 25:
+                    if(letter_blocks[24].style.backgroundColor == '')
+                    {
+                        letter_blocks[current_block_num].innerHTML = '';
+                    }
+                break;
+        
+        
+            }
+        }
+      
 
     }
+
 
 }
