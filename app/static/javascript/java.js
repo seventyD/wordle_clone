@@ -179,3 +179,11 @@ function reset()
     window.location.reload();
 }
 
+function sendpy()
+{
+
+    $.post( "/stats", {
+        javascript_data: 2 
+    });
+
+}

@@ -10,10 +10,6 @@ from werkzeug.urls import url_parse
 @app.route('/index')
 @login_required
 def index():
-    #if request.method == 'POST':
-        #game = Game(win=0, user_id=1)
-        #db.session.add(game)
-        #db.session.commit()
     return render_template('base.html')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -53,3 +49,12 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register_base.html', title='Register', form=form)
+
+
+
+@app.route('/stats', methods = ['POST'])
+@login_required
+def stats():
+    jsdata = request.form['javascript_data']
+    print(jsdata)
+    return render_template('stats_base.html')

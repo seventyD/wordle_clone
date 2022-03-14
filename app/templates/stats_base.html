@@ -1,0 +1,52 @@
+{% from 'header.html' import header %}
+
+
+{% from 'footer.html' import footer %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/style.css') }}">
+        <script src="{{url_for('static', filename='javascript/java.js')}}"></script>
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    </head>
+
+
+
+    <div class="background">
+
+        
+    <div>
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+    </div>
+
+        {{ header() }}
+
+
+        <div class="stats_title"> Statistics</div>
+        <div class="stats_info"> 
+            
+            <button onclick="sendpy()">SE</button>
+
+            <div class="played" id="num_played">1 </br> Played</div>
+            <div class="Wins">100% </br> Win%</div>
+            <div class="CStreak">1 </br> Current Streak</div>
+            <div class="MStreak">1 </br> Max Streak</div>
+        </div>
+    
+        {{ footer() }}
+    </div>
+    
+
+</html>
