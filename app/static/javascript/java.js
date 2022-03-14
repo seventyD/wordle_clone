@@ -156,7 +156,6 @@ function add_word(guess, turn_num)
         if(!letter_is_used) {used.innerHTML += guess[i];}
     }
     
-    //if(guess == goal_word) {win_screen();}
     if(turn_number == 6) {lose_screen(goal_word);}
     if(guess == goal_word) {win_screen();}
 
@@ -167,9 +166,7 @@ function add_word(guess, turn_num)
 function win_screen()
 {
     document.getElementById("next_game").style.display = "block";
-
     document.getElementById("game_inputs").style.display = "none";
-    
     document.getElementById("win/loss").innerHTML = "WINNER!!!!!"
     $.get( "/index/<WIN>" );
 
@@ -180,9 +177,7 @@ function win_screen()
 function lose_screen(goal_word)
 {
     document.getElementById("next_game").style.display = "block";
-
     document.getElementById("game_inputs").style.display = "none";
-    
     document.getElementById("win/loss").innerHTML = "LOSER!!! </br> WORD WAS: " + goal_word;
     $.get( "/index/<LOSS>" );
     
@@ -191,8 +186,6 @@ function lose_screen(goal_word)
 
 function reset()
 {
-
-
     window.location.reload();
 }
 
@@ -210,7 +203,6 @@ function place_letter(letter)
             break;
         }
         current_block_num = 30;
-
     }
 
  
@@ -253,9 +245,6 @@ function place_letter(letter)
                 var guess = letter_blocks[25].innerHTML + letter_blocks[26].innerHTML + letter_blocks[27].innerHTML + letter_blocks[28].innerHTML + letter_blocks[29].innerHTML;
                 guess_word(guess);
                 break;
-
-
-            
         }
     }
     else
@@ -268,12 +257,9 @@ function place_letter(letter)
             {
                 letter_blocks[current_block_num-1].innerHTML = '';
             }
-
-
         }
         else
         {
-
             letter_blocks[current_block_num].innerHTML = letter;
             switch (current_block_num)
             {
@@ -311,11 +297,7 @@ function place_letter(letter)
         
             }
         }
-      
-
     }
-
-
 }
 
 
@@ -335,6 +317,5 @@ function logKey(e) {
             place_letter(key);
         }
     }
-    //if(e.key == q) { place_letter(letter); }
     
 }
