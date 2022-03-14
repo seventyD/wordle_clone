@@ -155,6 +155,7 @@ function win_screen()
     document.getElementById("game_inputs").style.display = "none";
     
     document.getElementById("win/loss").innerHTML = "WINNER!!!!!"
+    $.get( "/index/<WIN>" );
 
 
 }
@@ -167,7 +168,7 @@ function lose_screen(goal_word)
     document.getElementById("game_inputs").style.display = "none";
     
     document.getElementById("win/loss").innerHTML = "LOSER!!! </br> WORD WAS: " + goal_word;
-
+    $.get( "/index/<LOSS>" );
     
 }
 
@@ -179,11 +180,3 @@ function reset()
     window.location.reload();
 }
 
-function sendpy()
-{
-
-    $.post( "/stats", {
-        javascript_data: 2 
-    });
-
-}

@@ -51,10 +51,22 @@ def register():
     return render_template('register_base.html', title='Register', form=form)
 
 
-
-@app.route('/stats', methods = ['POST'])
-@login_required
+@app.route('/stats')
 def stats():
-    jsdata = request.form['javascript_data']
-    print(jsdata)
     return render_template('stats_base.html')
+    
+
+@app.route('/index/<jsdata>')
+@login_required
+def get_javascript_data(jsdata):
+    print(jsdata)
+    if jsdata == '<LOSS>':
+        print('GOT LOSS')
+        u = current_user
+        game = Game(win=False, author=u)
+        print(game.author)
+        db.session.add(game)
+        db.session.commit()
+
+
+    return jsdata
